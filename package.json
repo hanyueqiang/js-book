@@ -1,0 +1,18 @@
+{
+  "name": "js-book",
+  "version": "1.0.0",
+  "description": "learning front-end ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "js",
+    "front-end",
+    "html",
+    "css"
+  ],
+  "author": "webyueqiang@163.com",
+  "license": "ISC"
+}
