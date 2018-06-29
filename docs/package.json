@@ -14,5 +14,16 @@
     "css"
   ],
   "author": "webyueqiang@163.com",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanyueqiang/js-book.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hanyueqiang/js-book/issues"
+  },
+  "homepage": "https://github.com/hanyueqiang/js-book#readme"
 }

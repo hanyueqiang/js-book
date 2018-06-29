@@ -80,3 +80,74 @@
 	或：
 	git log -p <commit-hash-id>
 
+## 查看分支
+	git branch //查看本地分支，当前分支前会有*号
+
+	git branch -r //查看远程分支
+
+	git branch -a //查看远程和本地分支
+
+## 创建和切换分支
+
+	git branch <branch-name> //创建新的分支，不会切换到新分支上，本地创建的分支不会提交到远程，对其他人不可见。
+
+	git checkout <branch-name> //切换分支，branch-name 既可以是本地分支也可以是远程分支
+
+	git checkout -b <branch-name> //创建新分支并切换到新分支
+
+	git push origin <branch-name>:<branch-name> //讲新创建的本地分支推送到远程
+	
+	git fetch 获取远程分支
+
+	git checkout -b branchName origin/branchName //会在本地新建分支并切换到该分支上。
+
+## 删除分支
+	git branch -d <branch-name> //删除本地分支
+
+	git branch -D <branch-name> //此分支没有被merge其他分支，可以强制删除。
+
+## 查看标签
+
+标签总是和commit挂钩，如果commit即出现在master分支又出现dev分支，那么两个分支都可以看见标签；
+	
+	git tag //标签不是按时间顺序列出，而是字母排列
+	
+	git show v1.0.1 //查看指定标签详细信息
+
+	git tag v1.0.0 //默认标签打在最新提交的commit上
+
+	git tag v1.0.0 <commit-id> //标签指定commit id
+
+	git tag -a <tagname> -m "hello world..." //指定标签信息
+	
+	git push origin v1.0.0 //推送某个标签到远程
+	
+	git push origin --tags //一次性推送全部尚未在远程的本地标签
+
+	git tag -d v1.0.1 //删除本地标签
+	
+	git push origin :refs/tags/v1.0.1 //如果标签已经推送到远程 先从本地删除，然后从远程删除
+
+## 查看修改和撤销记录
+
+	git diff //简单查看文件修改 还没有add前 希望看下做了哪些修改
+
+	git diff <file-name> //只想检查某个文件做了修改
+
+	git checkout . //撤销修改 
+	
+	git reset --hard //撤销修改 同上
+	
+	git checkout <file-name> //撤销修改指定文件
+		
+	git diff --catch //把文件add后 查看修改
+
+	git reset //撤销修改 同 git checkout .
+	
+	git reset --hard origin master //commit后撤销修改
+
+	git reset --hard HEAD^ //如果撤销修改的内容已经提交，需要先恢复本地仓库，再强制push远程 
+	
+	git push -f //强制push远程 慎用
+	
+	
