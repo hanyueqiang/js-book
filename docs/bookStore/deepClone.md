@@ -25,3 +25,37 @@
 由此可见，基本数据类型的复制非常简单，直接使用赋值运算即可.引用类型的复制则不能直接使用赋值运算，否则操作的仍是同一个对象.
 
 ## 浅拷贝
+
+	function shallowCopy (obj) {
+	  if (typeof obj !== 'object') return obj; //只拷贝引用类型，基本数据类型直接返回即可
+	
+	  var newObj = obj instanceof Array ? [] : {}; //根据 obj 的类型来判断新建一个空数组或者空对象
+	
+	  for (var key in obj) {
+	    if (obj.hasOwnProperty(key)) {   //使用 hasOwnProperty() 过滤出对象实例的属性
+	      newObj[key] = obj[key];
+	    }
+	  }
+	
+	  return newObj;
+	}
+
+当属性值为基本数据类型时，我们拷贝出来的新对象和原对象互不影响，当属性值为引用类型时，新对象和原对象在修改引用类型的属性值时相互影响。
+
+## 深拷贝
+
+对浅拷贝进行递归调用就是深拷贝
+
+	function deepCopy (obj) {
+		if ( typeof obj !== 'object' ) return obj;
+	
+		var newObj = obj instanceof Array ? [] : {};
+	
+		for ( var key in obj ) {
+			if ( obj.hasOwnProperty( key ) ) {
+				newObj[key] = typeof obj[key] === 'object' ? deepCopy( obj[key] ) : obj[key];
+			}
+		}
+	
+		return newObj;
+	}
