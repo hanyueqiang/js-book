@@ -5,3 +5,4 @@
 	* [git 常用命令](bookStore/gitCode.md)
 	* [git 实践](bookStore/gitPractice.md)
 * [js对象浅拷贝和深拷贝详解](bookStore/deepClone.md)
+* [ES6---数组array新增方法](bookStore/es6Array.md)
