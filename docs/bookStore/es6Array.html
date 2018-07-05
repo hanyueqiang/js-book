@@ -217,22 +217,23 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="find">find</h2>
-<p>find&#x53C2;&#x6570;&#x4E3A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x63A5;&#x53D7;3&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x503C;x,&#x7D22;&#x5F15;i,&#x539F;&#x6570;&#x7EC4;arr,&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#x503C;x.</p>
-<pre><code>let arr = [1,2,3,4,&apos;abc&apos;,-10];
-arr.find(function(x){
+<p><code>find</code>&#x53C2;&#x6570;&#x4E3A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x63A5;&#x53D7;3&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x503C;<code>x</code>,&#x7D22;&#x5F15;<code>i</code>,&#x539F;&#x6570;&#x7EC4;<code>arr</code>,&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#x503C;<code>x</code>.</p>
+<pre><code>let arr = [1,2,3,4];
+
+arr.find(function(x) {
     return x &lt;= 2;
 }) 
 // &#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x503C; 1
 </code></pre><h2 id="findindex">findIndex</h2>
 <p>findIndex&#x548C;find&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x4E0D;&#x8FC7;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x7D22;&#x5F15;&#x3002;</p>
-<pre><code>let arr = [1,2,3,4,&apos;abc&apos;,-10];
+<pre><code>let arr = [1,2,3,4];
 arr.find(function(x){
     return x &lt;= 2;
 }) 
 // &#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;x&#x503C;&#x7684;&#x7D22;&#x5F15; 0
 </code></pre><h2 id="includes">includes</h2>
 <p>includes&#x51FD;&#x6570;&#x4E0E;string&#x7684;includes&#x4E00;&#x6837;&#xFF0C;&#x63A5;&#x6536;2&#x53C2;&#x6570;&#xFF0C;&#x67E5;&#x8BE2;&#x7684;&#x9879;&#x4EE5;&#x53CA;&#x67E5;&#x8BE2;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x3002;&#x8FD4;&#x56DE;&#x5E03;&#x5C14;&#x7C7B;&#x578B;&#xFF1B;</p>
-<pre><code>let arr=[1,2,234,5,6];
+<pre><code>let arr=[1,2,3,4];
 
 arr.includes(2); // &#x7ED3;&#x679C;true&#xFF0C;&#x8FD4;&#x56DE;&#x5E03;&#x5C14;&#x503C;
 arr.includes(20); // &#x7ED3;&#x679C;&#xFF1A;false&#xFF0C;&#x8FD4;&#x56DE;&#x5E03;&#x5C14;&#x503C;
@@ -281,16 +282,20 @@ Array.of()//[]&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A;&#x6570;&#x7EC4;
 [&quot;w&quot;, &quot;i&quot;, &quot;r&quot;,&quot;b&quot;].copyWithin(1,2)//[&quot;w&quot;, &quot;r&quot;, &quot;b&quot;, &quot;b&quot;],&#x7D22;&#x5F15;2&#x5230;&#x6700;&#x540E;&#x7684;r,b&#x4E24;&#x9879;&#x5206;&#x522B;&#x66FF;&#x6362;&#x5230;&#x539F;&#x6570;&#x7EC4;1&#x5F00;&#x59CB;&#x7684;&#x5404;&#x9879;&#xFF0C;&#x5F53;&#x6570;&#x91CF;&#x4E0D;&#x591F;&#xFF0C;&#x53D8;&#x7EC8;&#x6B62;
 [&quot;w&quot;, &quot;i&quot;, &quot;r&quot;,&apos;b&apos;].copyWithin(1,2,3)//[&quot;w&quot;, &quot;r&quot;, &quot;r&quot;, &quot;b&quot;]&#xFF0C;&#x5F3A;&#x7B2C;1&#x9879;&#x7684;i&#x66FF;&#x6362;&#x4E3A;&#x7B2C;2&#x9879;&#x7684;r
 </code></pre><h2 id="arrayfrom">Array.from()</h2>
-<p>Array.from&#x53EF;&#x4EE5;&#x628A;&#x5E26;&#x6709;lenght&#x5C5E;&#x6027;&#x7C7B;&#x4F3C;&#x6570;&#x7EC4;&#x7684;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x7EC4;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x5B57;&#x7B26;&#x4E32;&#x7B49;&#x53EF;&#x4EE5;&#x904D;&#x5386;&#x7684;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x7EC4;&#xFF0C;&#x5B83;&#x63A5;&#x6536;2&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8F6C;&#x6362;&#x5BF9;&#x8C61;&#x4E0E;&#x56DE;&#x8C03;&#x51FD;&#x6570;
-    Array.from({&apos;0&apos;:&apos;w&apos;,&apos;1&apos;:&apos;b&apos;,length:2})//[&quot;w&quot;, &quot;b&quot;],&#x8FD4;&#x56DE;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x53D6;&#x51B3;&#x4E8E;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;length&#xFF0C;&#x6545;&#x6B64;&#x9879;&#x5FC5;&#x987B;&#x6709;&#xFF01;
-    Array.from({&apos;0&apos;:&apos;w&apos;,&apos;1&apos;:&apos;b&apos;,length:4})//[&quot;w&quot;, &quot;b&quot;, undefined, undefined],&#x6570;&#x7EC4;&#x540E;2&#x9879;&#x6CA1;&#x6709;&#x5C5E;&#x6027;&#x53BB;&#x8D4B;&#x503C;&#xFF0C;&#x6545;undefined
-    Array.from({&apos;0&apos;:&apos;w&apos;,&apos;1&apos;:&apos;b&apos;,length:1})//[&quot;w&quot;],length&#x5C0F;&#x4E8E;key&#x7684;&#x6570;&#x76EE;&#xFF0C;&#x6309;&#x5E8F;&#x6DFB;&#x52A0;&#x6570;&#x7EC4;</p>
-<pre><code>//////////////////////////////
+<p>Array.from&#x53EF;&#x4EE5;&#x628A;&#x5E26;&#x6709;lenght&#x5C5E;&#x6027;&#x7C7B;&#x4F3C;&#x6570;&#x7EC4;&#x7684;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x7EC4;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x5B57;&#x7B26;&#x4E32;&#x7B49;&#x53EF;&#x4EE5;&#x904D;&#x5386;&#x7684;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x7EC4;&#xFF0C;&#x5B83;&#x63A5;&#x6536;2&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8F6C;&#x6362;&#x5BF9;&#x8C61;&#x4E0E;&#x56DE;&#x8C03;&#x51FD;&#x6570;</p>
+<pre><code>Array.from({&apos;0&apos;:&apos;w&apos;,&apos;1&apos;:&apos;b&apos;,length:2})//[&quot;w&quot;, &quot;b&quot;],&#x8FD4;&#x56DE;&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x53D6;&#x51B3;&#x4E8E;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;length&#xFF0C;&#x6545;&#x6B64;&#x9879;&#x5FC5;&#x987B;&#x6709;&#xFF01;
+Array.from({&apos;0&apos;:&apos;w&apos;,&apos;1&apos;:&apos;b&apos;,length:4})//[&quot;w&quot;, &quot;b&quot;, undefined, undefined],&#x6570;&#x7EC4;&#x540E;2&#x9879;&#x6CA1;&#x6709;&#x5C5E;&#x6027;&#x53BB;&#x8D4B;&#x503C;&#xFF0C;&#x6545;undefined
+Array.from({&apos;0&apos;:&apos;w&apos;,&apos;1&apos;:&apos;b&apos;,length:1})//[&quot;w&quot;],length&#x5C0F;&#x4E8E;key&#x7684;&#x6570;&#x76EE;&#xFF0C;&#x6309;&#x5E8F;&#x6DFB;&#x52A0;&#x6570;&#x7EC4;
+
 let divs=document.getElementsByTagName(&apos;div&apos;);
+
 Array.from(divs)//&#x8FD4;&#x56DE;div&#x5143;&#x7D20;&#x6570;&#x7EC4;
+
 Array.from(&apos;wbiokr&apos;)//[&quot;w&quot;, &quot;b&quot;, &quot;i&quot;, &quot;o&quot;, &quot;k&quot;, &quot;r&quot;]
+
 Array.from([1,2,3],function(x){
-        return x+1})//[2, 3, 4],&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x56DE;&#x8C03;&#x51FD;&#x6570;
+       return x+1
+})    //[2, 3, 4],&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x56DE;&#x8C03;&#x51FD;&#x6570;
 </code></pre>
                                 
                                 </section>
@@ -330,7 +335,7 @@ Array.from([1,2,3],function(x){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ES6---数组array新增方法","level":"1.4","depth":1,"previous":{"title":"js对象浅拷贝和深拷贝详解","level":"1.3","depth":1,"path":"bookStore/deepClone.md","ref":"bookStore/deepClone.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookStore/es6Array.md","mtime":"2018-07-04T05:05:09.338Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-04T05:05:35.460Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ES6---数组array新增方法","level":"1.4","depth":1,"previous":{"title":"js对象浅拷贝和深拷贝详解","level":"1.3","depth":1,"path":"bookStore/deepClone.md","ref":"bookStore/deepClone.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookStore/es6Array.md","mtime":"2018-07-05T06:44:04.075Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-05T06:44:53.045Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
