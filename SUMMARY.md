@@ -8,3 +8,4 @@
 * [ES6---数组array新增方法](bookStore/es6Array.md)
 * [String](bookStore/string.md)
 * [Regexp---正则表达式](bookStore/regExp.md)
+* [this 、call 和 apply](bookStore/this.md)
