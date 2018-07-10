@@ -9,3 +9,4 @@
 * [String](bookStore/string.md)
 * [Regexp---正则表达式](bookStore/regExp.md)
 * [this 、call 和 apply](bookStore/this.md)
+* [前端性能优化](bookStore/optimization.md)
