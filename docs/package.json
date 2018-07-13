@@ -4,14 +4,12 @@
   "description": "learning front-end ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "rm -rf docs && mkdir docs",
+    "build": "gitbook build ./ ./docs"
   },
   "keywords": [
     "javascript",
-    "js",
-    "front-end",
-    "html",
-    "css"
+    "js"
   ],
   "author": "webyueqiang@163.com",
   "license": "ISC",
