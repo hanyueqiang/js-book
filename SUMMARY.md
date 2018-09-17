@@ -12,3 +12,4 @@
 * [前端性能优化](bookStore/optimization.md)
 * [从URL输入到页面展现发生了什么](bookStore/url.md)
 * [文件上传和下载](bookStore/upload_download.md)
+* [点击按钮实现复制功能](bookStore/copyText.md)
