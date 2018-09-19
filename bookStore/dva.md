@@ -100,3 +100,8 @@
 	export default ProductList;
 
 ## 定义 Model
+完成 `UI` 后，现在开始处理数据和逻辑。
+
+`dva` 通过 `model` 的概念把一个领域的模型管理起来，包含同步更新 `state` 的 `reducers`，处理异步逻辑的 `effects`，订阅数据源的 subscriptions 。
+
+新建 `model models/products.js` ：
