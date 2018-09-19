@@ -34,3 +34,26 @@
 我们要写个应用来先显示产品列表。首先第一步是创建路由，路由可以想象成是组成应用的不同页面。
 
 新建 `route component routes/Products.js`，内容如下：
+
+	import React from 'react'
+
+	const Products = (props) => (
+	    <h2>List of Products</h2>
+	)
+	
+	export default Products
+
+添加路由信息到路由表，编辑` router.js :`
+
+	import Products from './routes/Products'
+	
+	function RouterConfig({ history }) {
+	  return (
+	    <Router history={history}>
+	      <Switch>
+	        <Route path="/" exact component={IndexPage} />
+	        <Route path="/products" exact component={Products} /> //add router
+	      </Switch>
+	    </Router>
+	  );
+	}
