@@ -57,3 +57,46 @@
 	    </Router>
 	  );
 	}
+
+## 编写 UI 组件
+随着应用的发展，你会需要在多个页面分享 `UI` 元素 (或在一个页面使用多次)，在 `dva` 里你可以把这部分抽成 `component` 。
+
+我们来编写一个 `ProductList component`，这样就能在不同的地方显示产品列表了。
+
+	import React from 'react'
+	import PropTypes from 'prop-types'
+	import { Table, Popconfirm, Button } from 'antd'
+
+	const ProductList = ({ onDelete, products }) => {
+	    const colums = [
+	        {
+	            title: "Name",
+	            detaIndex: "name"
+	        },
+	        {
+	            title: "Actions",
+	            render: (text, record) => {
+	                return (
+	                    <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+	                        <Button>Delete</Button>
+	                    </Popconfirm>
+	                )
+	            }
+	        }
+	    ];
+	    return (
+	        <Table
+	            dataSource={products}
+	            columns={colums}
+	        />
+	    )
+	}
+
+	ProductList.propTypes = {
+	    onDelete: PropTypes.func.isRequired,
+	    products: PropTypes.array.isRequired,
+	};
+
+	export default ProductList;
+
+## 定义 Model

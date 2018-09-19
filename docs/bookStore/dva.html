@@ -363,7 +363,46 @@ function RouterConfig({ history }) {
     &lt;/Router&gt;
   );
 }
-</code></pre>
+</code></pre><h2 id="&#x7F16;&#x5199;-ui-&#x7EC4;&#x4EF6;">&#x7F16;&#x5199; UI &#x7EC4;&#x4EF6;</h2>
+<p>&#x968F;&#x7740;&#x5E94;&#x7528;&#x7684;&#x53D1;&#x5C55;&#xFF0C;&#x4F60;&#x4F1A;&#x9700;&#x8981;&#x5728;&#x591A;&#x4E2A;&#x9875;&#x9762;&#x5206;&#x4EAB; <code>UI</code> &#x5143;&#x7D20; (&#x6216;&#x5728;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x4F7F;&#x7528;&#x591A;&#x6B21;)&#xFF0C;&#x5728; <code>dva</code> &#x91CC;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x90E8;&#x5206;&#x62BD;&#x6210; <code>component</code> &#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x7F16;&#x5199;&#x4E00;&#x4E2A; <code>ProductList component</code>&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x5730;&#x65B9;&#x663E;&#x793A;&#x4EA7;&#x54C1;&#x5217;&#x8868;&#x4E86;&#x3002;</p>
+<pre><code>import React from &apos;react&apos;
+import PropTypes from &apos;prop-types&apos;
+import { Table, Popconfirm, Button } from &apos;antd&apos;
+
+const ProductList = ({ onDelete, products }) =&gt; {
+    const colums = [
+        {
+            title: &quot;Name&quot;,
+            detaIndex: &quot;name&quot;
+        },
+        {
+            title: &quot;Actions&quot;,
+            render: (text, record) =&gt; {
+                return (
+                    &lt;Popconfirm title=&quot;Delete?&quot; onConfirm={() =&gt; onDelete(record.id)}&gt;
+                        &lt;Button&gt;Delete&lt;/Button&gt;
+                    &lt;/Popconfirm&gt;
+                )
+            }
+        }
+    ];
+    return (
+        &lt;Table
+            dataSource={products}
+            columns={colums}
+        /&gt;
+    )
+}
+
+ProductList.propTypes = {
+    onDelete: PropTypes.func.isRequired,
+    products: PropTypes.array.isRequired,
+};
+
+export default ProductList;
+</code></pre><h2 id="&#x5B9A;&#x4E49;-model">&#x5B9A;&#x4E49; Model</h2>
+
                                 
                                 </section>
                             
@@ -402,7 +441,7 @@ function RouterConfig({ history }) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"dva快速上手实践","level":"1.12","depth":1,"previous":{"title":"点击按钮实现复制功能","level":"1.11","depth":1,"path":"bookStore/copyText.md","ref":"bookStore/copyText.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookStore/dva.md","mtime":"2018-09-19T14:54:22.377Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-19T14:57:26.580Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"dva快速上手实践","level":"1.12","depth":1,"previous":{"title":"点击按钮实现复制功能","level":"1.11","depth":1,"path":"bookStore/copyText.md","ref":"bookStore/copyText.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookStore/dva.md","mtime":"2018-09-19T15:15:57.907Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-19T15:16:14.723Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
