@@ -105,3 +105,62 @@
 `dva` 通过 `model` 的概念把一个领域的模型管理起来，包含同步更新 `state` 的 `reducers`，处理异步逻辑的 `effects`，订阅数据源的 subscriptions 。
 
 新建 `model models/products.js` ：
+	
+	export default {
+	    namespace: 'products', //全局state的key
+	    state: [], //初始值 空数组
+	    reducers: {
+	        'delete': {
+	            'delete'(state, { payload: id }) {
+	                return state.filter(item => item.id !== id)
+	            }
+	        }
+	    }
+	    //reducers 等同于redux里的reducer 接收action 同步跟新state
+	}
+
+然后别忘记在` index.js `里载入他：
+
+	app.model(require('./models/products').default)
+
+## connect 起来
+
+到这里，我们已经单独完成了 `model` 和 `component`，那么他们如何串联起来呢?
+
+`dva` 提供了`connect` 方法。如果你熟悉` redux`，这个` connect `就是` react-redux `的 `connect` 。
+
+编辑` routes/Products.js`，替换为以下内容：
+
+	import React from 'react'
+	import { connect } from 'dva'
+	import ProductList from './../components/ProductList';
+	
+	const Products = ({ dispatch, products }) => {
+	    function handleDelete(id) {
+	        dispatch({
+	            type: 'products/delete',
+	            payload: id
+	        })
+	    }
+	    return (
+	        <div>
+	            <h2>List of Products</h2>
+	            <ProductList onDelete={handleDelete} products={products} />
+	        </div>
+	    )
+	}
+	
+	export default connect(({ products }) => ({
+	    products
+	}))(Products);
+
+最后，我们还需要一些初始数据让这个应用 run 起来。编辑 `index.js`：
+
+	const app = dva({
+	    initialState: {
+	        products: [
+	            { name: 'dva', id: 1 },
+	            { name: 'antd', id: 2 }
+	        ]
+	    }
+	});
