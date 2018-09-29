@@ -15,3 +15,4 @@
 * [点击按钮实现复制功能](bookStore/copyText.md)
 * [dva快速上手实践](bookStore/dva.md)
 * [dva深入了解](bookStore/dva-detail.md)
+* [微信小程序·云开发详解](bookStore/wx-yun.md)
