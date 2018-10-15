@@ -17,3 +17,4 @@
 * [dva深入了解](bookStore/dva-detail.md)
 * [微信小程序·云开发详解](bookStore/wx-yun.md)
 * [React 路由跳转后回到页面顶部](bookStore/react-top.md)
+* [crypto使用](bookStore/crypto.md)
