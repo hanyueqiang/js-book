@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>React 路由跳转后回到页面顶部 · GitBook</title>
+        <title>crypto使用 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="crypto.html" />
     
-    
-    <link rel="prev" href="wx-yun.html" />
+    <link rel="prev" href="react-top.html" />
     
 
     </head>
@@ -303,7 +301,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.15" data-path="react-top.html">
+        <li class="chapter " data-level="1.15" data-path="react-top.html">
             
                 <a href="react-top.html">
             
@@ -316,7 +314,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="crypto.html">
+        <li class="chapter active" data-level="1.16" data-path="crypto.html">
             
                 <a href="crypto.html">
             
@@ -359,7 +357,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >React 路由跳转后回到页面顶部</a>
+        <a href=".." >crypto使用</a>
     </h1>
 </div>
 
@@ -374,22 +372,51 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x6EDA;&#x52A8;&#x6761;&#x8FD4;&#x56DE;&#x9876;&#x90E8;">&#x6EDA;&#x52A8;&#x6761;&#x8FD4;&#x56DE;&#x9876;&#x90E8;</h3>
-<p>&#x5728; React &#x7EC4;&#x4EF6;&#x95F4;&#x8FDB;&#x884C;&#x9875;&#x9762;&#x8DF3;&#x8F6C;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x9875;&#x9762;&#x7684;&#x4F4D;&#x7F6E;&#x5E76;&#x4E0D;&#x5728;&#x9875;&#x9762;&#x9876;&#x90E8;&#xFF0C;&#x800C;&#x662F;&#x5728;&#x9875;&#x9762;&#x8DF3;&#x8F6C;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x5C31;&#x662F;&#x8BF4;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x6EDA;&#x52A8;&#x6761;&#x5E76;&#x6CA1;&#x6709;&#x56DE;&#x5230;&#x9876;&#x90E8;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
-<pre><code>class MyComponent extends Component {
-    componentDidMount() {
-        this.node.scrollIntoView();
-    }
-    render() {
-        return &lt;div ref={node =&gt; this.node = node} /&gt;
-    }
+                                <h2 id="crypto&#x6A21;&#x5757;">crypto&#x6A21;&#x5757;</h2>
+<p>&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x63D0;&#x4F9B;&#x901A;&#x7528;&#x7684;&#x52A0;&#x5BC6;&#x548C;&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;&#x3002;&#x7528;&#x7EAF;JavaScript&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x8FD9;&#x4E9B;&#x529F;&#x80FD;&#x4E0D;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#xFF0C;&#x4F46;&#x901F;&#x5EA6;&#x4F1A;&#x975E;&#x5E38;&#x6162;&#x3002;<code>Nodejs</code>&#x7528;<code>C/C++</code>&#x5B9E;&#x73B0;&#x8FD9;&#x4E9B;&#x7B97;&#x6CD5;&#x540E;&#xFF0C;&#x901A;&#x8FC7;<code>cypto</code>&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x66B4;&#x9732;&#x4E3A;JavaScript&#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x6837;&#x7528;&#x8D77;&#x6765;&#x65B9;&#x4FBF;&#xFF0C;&#x8FD0;&#x884C;&#x901F;&#x5EA6;&#x4E5F;&#x5FEB;&#x3002;</p>
+<h2 id="md5&#x548C;sha1">MD5&#x548C;SHA1</h2>
+<p><code>MD5</code>&#x662F;&#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x7ED9;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x4E00;&#x4E2A;&#x201C;&#x7B7E;&#x540D;&#x201D;&#x3002;&#x8FD9;&#x4E2A;&#x7B7E;&#x540D;&#x901A;&#x5E38;&#x7528;&#x4E00;&#x4E2A;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#xFF1A;</p>
+<pre><code>const crypto = require(&apos;crypto&apos;);
+
+const hash = crypto.createHash(&apos;md5&apos;);
+
+// &#x53EF;&#x4EFB;&#x610F;&#x591A;&#x6B21;&#x8C03;&#x7528;update():
+hash.update(&apos;Hello, world!&apos;);
+hash.update(&apos;Hello, nodejs!&apos;);
+</code></pre><h2 id="rsa">RSA</h2>
+<p>RSA&#x7B97;&#x6CD5;&#x662F;&#x4E00;&#x79CD;&#x975E;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#xFF0C;&#x5373;&#x7531;&#x4E00;&#x4E2A;&#x79C1;&#x94A5;&#x548C;&#x4E00;&#x4E2A;&#x516C;&#x94A5;&#x6784;&#x6210;&#x7684;&#x5BC6;&#x94A5;&#x5BF9;&#xFF0C;&#x901A;&#x8FC7;&#x79C1;&#x94A5;&#x52A0;&#x5BC6;&#xFF0C;&#x516C;&#x94A5;&#x89E3;&#x5BC6;&#xFF0C;&#x6216;&#x8005;&#x901A;&#x8FC7;&#x516C;&#x94A5;&#x52A0;&#x5BC6;&#xFF0C;&#x79C1;&#x94A5;&#x89E3;&#x5BC6;&#x3002;&#x5176;&#x4E2D;&#xFF0C;&#x516C;&#x94A5;&#x53EF;&#x4EE5;&#x516C;&#x5F00;&#xFF0C;&#x79C1;&#x94A5;&#x5FC5;&#x987B;&#x4FDD;&#x5BC6;&#x3002;</p>
+<h2 id="aes">AES</h2>
+<p><code>AES</code>&#x662F;&#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#xFF0C;&#x52A0;&#x89E3;&#x5BC6;&#x90FD;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x5BC6;&#x94A5;&#x3002;<code>crypto</code>&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;<code>AES</code>&#x652F;&#x6301;&#xFF0C;&#x4F46;&#x662F;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5C01;&#x88C5;&#x597D;&#x51FD;&#x6570;&#xFF0C;&#x4FBF;&#x4E8E;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code>const crypto = require(&apos;crypto&apos;);
+
+//&#x52A0;&#x5BC6;
+function aesEncrypt(data, key) {
+    const cipher = crypto.createCipher(&apos;aes192&apos;, key);
+    var crypted = cipher.update(data, &apos;utf8&apos;, &apos;hex&apos;);
+    crypted += cipher.final(&apos;hex&apos;);
+    return crypted;
 }
 
-&#x5982;&#x4F55;&#x8FD8;&#x4E0D;&#x884C;&#x5C31;&#x5F3A;&#x884C;&#xFF1A;
-componentWillMount(){
-    document.getElementById(&apos;App&apos;).scrollIntoView(true);//&#x4E3A;ture&#x8FD4;&#x56DE;&#x9876;&#x90E8;&#xFF0C;false&#x4E3A;&#x5E95;&#x90E8;
+//&#x89E3;&#x5BC6;
+function aesDecrypt(encrypted, key) {
+    const decipher = crypto.createDecipher(&apos;aes192&apos;, key);
+    var decrypted = decipher.update(encrypted, &apos;hex&apos;, &apos;utf8&apos;);
+    decrypted += decipher.final(&apos;utf8&apos;);
+    return decrypted;
 }
-</code></pre>
+
+var data = &apos;happy everyday&apos;;
+var key = &apos;secertKey&apos;;
+var encrypted = aesEncrypt(data, key);
+var decrypted = aesDecrypt(encrypted, key);
+
+console.log(&apos;Plain text: &apos; + data); // Plain text: happy everyday
+console.log(&apos;Encrypted text: &apos; + encrypted); // Encrypted text: 8a944d97bdabc157a5b7a40cb180e7...
+console.log(&apos;Decrypted text: &apos; + decrypted); // Plain text: happy everyday
+</code></pre><p>&#x6CE8;&#x610F;&#x5230;<code>AES</code>&#x6709;&#x5F88;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x5982;<code>aes192&#xFF0C;aes-128-ecb&#xFF0C;aes-256-cbc</code>&#x7B49;&#xFF0C;<code>AES</code>&#x9664;&#x4E86;&#x5BC6;&#x94A5;&#x5916;&#x8FD8;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;<code>IV&#xFF08;Initial Vector&#xFF09;</code>&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x7CFB;&#x7EDF;&#x53EA;&#x8981;<code>IV</code>&#x4E0D;&#x540C;&#xFF0C;&#x7528;&#x76F8;&#x540C;&#x7684;&#x5BC6;&#x94A5;&#x52A0;&#x5BC6;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#x5F97;&#x5230;&#x7684;&#x52A0;&#x5BC6;&#x7ED3;&#x679C;&#x4E5F;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;&#x52A0;&#x5BC6;&#x7ED3;&#x679C;&#x901A;&#x5E38;&#x6709;&#x4E24;&#x79CD;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#xFF1A;<code>hex</code>&#x548C;<code>base64</code>&#xFF0C;&#x8FD9;&#x4E9B;&#x529F;&#x80FD;<code>Nodejs</code>&#x5168;&#x90E8;&#x90FD;&#x652F;&#x6301;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x5E94;&#x7528;&#x4E2D;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x52A0;&#x89E3;&#x5BC6;&#x53CC;&#x65B9;&#x4E00;&#x65B9;&#x7528;<code>Nodejs&#xFF0C;</code>&#x53E6;&#x4E00;&#x65B9;&#x7528;<code>Java&#x3001;PHP</code>&#x7B49;&#x5176;&#x5B83;&#x8BED;&#x8A00;&#xFF0C;&#x9700;&#x8981;&#x4ED4;&#x7EC6;&#x6D4B;&#x8BD5;&#x3002;&#x5982;&#x679C;&#x65E0;&#x6CD5;&#x6B63;&#x786E;&#x89E3;&#x5BC6;&#xFF0C;&#x8981;&#x786E;&#x8BA4;&#x53CC;&#x65B9;&#x662F;&#x5426;&#x9075;&#x5FAA;&#x540C;&#x6837;&#x7684;<code>AES</code>&#x7B97;&#x6CD5;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x5BC6;&#x94A5;&#x548C;<code>IV</code>&#x662F;&#x5426;&#x76F8;&#x540C;&#xFF0C;&#x52A0;&#x5BC6;&#x540E;&#x7684;&#x6570;&#x636E;&#x662F;&#x5426;&#x7EDF;&#x4E00;&#x4E3A;<code>hex</code>&#x6216;<code>base64</code>&#x683C;&#x5F0F;&#x3002;</p>
+<h2 id="&#x8BC1;&#x4E66;">&#x8BC1;&#x4E66;</h2>
+<p><code>crypto</code>&#x6A21;&#x5757;&#x4E5F;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x6570;&#x5B57;&#x8BC1;&#x4E66;&#x3002;&#x6570;&#x5B57;&#x8BC1;&#x4E66;&#x901A;&#x5E38;&#x7528;&#x5728;SSL&#x8FDE;&#x63A5;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;Web&#x7684;https&#x8FDE;&#x63A5;&#x3002;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>https</code>&#x8FDE;&#x63A5;&#x53EA;&#x9700;&#x8981;&#x5904;&#x7406;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x5355;&#x5411;&#x8BA4;&#x8BC1;&#xFF0C;&#x5982;&#x65E0;&#x7279;&#x6B8A;&#x9700;&#x6C42;&#xFF08;&#x4F8B;&#x5982;&#x81EA;&#x5DF1;&#x4F5C;&#x4E3A;<code>Root</code>&#x7ED9;&#x5BA2;&#x6237;&#x53D1;&#x8BA4;&#x8BC1;&#x8BC1;&#x4E66;&#xFF09;&#xFF0C;&#x5EFA;&#x8BAE;&#x7528;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x5982;<code>Nginx</code>&#x7B49;<code>Web</code>&#x670D;&#x52A1;&#x5668;&#x53BB;&#x5904;&#x7406;&#x8BC1;&#x4E66;&#x3002;</p>
+
                                 
                                 </section>
                             
@@ -416,14 +443,10 @@ componentWillMount(){
 
             
                 
-                <a href="wx-yun.html" class="navigation navigation-prev " aria-label="Previous page: 微信小程序·云开发详解">
+                <a href="react-top.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: React 路由跳转后回到页面顶部">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="crypto.html" class="navigation navigation-next " aria-label="Next page: crypto使用">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -432,7 +455,7 @@ componentWillMount(){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"React 路由跳转后回到页面顶部","level":"1.15","depth":1,"next":{"title":"crypto使用","level":"1.16","depth":1,"path":"bookStore/crypto.md","ref":"bookStore/crypto.md","articles":[]},"previous":{"title":"微信小程序·云开发详解","level":"1.14","depth":1,"path":"bookStore/wx-yun.md","ref":"bookStore/wx-yun.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookStore/react-top.md","mtime":"2018-10-13T07:42:29.317Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T10:22:55.114Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"crypto使用","level":"1.16","depth":1,"previous":{"title":"React 路由跳转后回到页面顶部","level":"1.15","depth":1,"path":"bookStore/react-top.md","ref":"bookStore/react-top.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookStore/crypto.md","mtime":"2018-10-15T10:21:43.753Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T10:22:55.114Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
