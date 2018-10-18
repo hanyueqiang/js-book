@@ -18,3 +18,4 @@
 * [微信小程序·云开发详解](bookStore/wx-yun.md)
 * [React 路由跳转后回到页面顶部](bookStore/react-top.md)
 * [crypto使用](bookStore/crypto.md)
+* [React路由的跳转的方法](bookStore/history-push.md)
