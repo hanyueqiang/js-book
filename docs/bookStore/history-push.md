@@ -28,4 +28,35 @@
 
 使用`this.props.match.params.xxx `可以获取到当前路由的参数
 
-### this.props.history.push('/path') 路由变化，页面无响应 bug解决办法
+### React子组件调用 this.props.history.push()发生报错的解决方案
+
+父组件代码
+
+    render() {
+        return (
+        <div className="homePage">
+            <ChildComponent  history ={this.props.history}  />
+        </div>
+    )
+
+#### this.props.history.push('/path') 无响应bug
+
+此问题使用与url地址为 /xxx/xxx/:id id之间变化，页面无响应, 此时组件进行更新 shoudComponent函数会进行props与nextProps比较，当发现props没有更新数据无响应。
+请看react-router-dom 里issue里开发者解答，如图:
+
+![history icon](./historyPush.png)
+
+解决办法：
+
+    //在事件函数内
+    this.props.history.push(`/record/hospital/${res.data.admissionId}`);
+
+    //周期函数内
+    shouldComponentUpdate(nextProps) {
+        let oOpts = JSON.stringify(this.props.match.params);
+        let nOpts = JSON.stringify(nextProps.match.params);
+        if(oOpts != nOpts) {
+            this.goFetch(nextProps.match.params.id); //dispatch请求, 会更新props
+        }
+        return true //此处为true, 未考虑到优化性能,仅解决路由push无响应问题
+    }
