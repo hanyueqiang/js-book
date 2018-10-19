@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>react路由history.push()无效解决办法 · GitBook</title>
+        <title>CSS大宝剑 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="deepClone.html" />
     
-    <link rel="prev" href="crypto.html" />
+    
+    <link rel="prev" href="gitPractice.html" />
     
 
     </head>
@@ -145,7 +147,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="cssWorld.html">
+        <li class="chapter active" data-level="1.3" data-path="cssWorld.html">
             
                 <a href="cssWorld.html">
             
@@ -340,7 +342,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.18" data-path="history-push.html">
+        <li class="chapter " data-level="1.18" data-path="history-push.html">
             
                 <a href="history-push.html">
             
@@ -383,7 +385,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >react路由history.push()无效解决办法</a>
+        <a href=".." >CSS大宝剑</a>
     </h1>
 </div>
 
@@ -398,47 +400,85 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="react&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;&#x7684;&#x65B9;&#x6CD5;">React&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;&#x7684;&#x65B9;&#x6CD5;</h2>
-<h3 id="react-router-200-&#x7248;&#x672C;">React-Router 2.0.0 &#x7248;&#x672C;</h3>
-<pre><code>import { browserHistory } from &apos;react-router&apos;
-browserHistory.push(&apos;/path&apos;)
-</code></pre><h3 id="react-router-240&#x7248;&#x672C;&#x4EE5;&#x4E0A;">React-Router 2.4.0&#x7248;&#x672C;&#x4EE5;&#x4E0A;</h3>
-<p><code>React-Router 2.4.0</code>&#x7248;&#x672C;&#x4EE5;&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>mixin</code>&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F7F;&#x7EC4;&#x4EF6;&#x589E;&#x52A0;<code>this.router</code>&#x5C5E;&#x6027;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5177;&#x4F53;<code>mixin</code>&#x4EE3;&#x7801;&#x53C2;&#x8003;&#x5982;&#x4E0B;:</p>
-<pre><code>import { withRouter } from &apos;react-router&apos;;
-clsss ABC extends Component {
+                                <h2 id="css&#x8BA9;&#x6587;&#x5B57;&#x5728;&#x4E00;&#x884C;&#x5185;&#x663E;&#x793A;">css&#x8BA9;&#x6587;&#x5B57;&#x5728;&#x4E00;&#x884C;&#x5185;&#x663E;&#x793A;</h2>
+<p>&#x91CC;&#x9762;&#x7684;&#x6587;&#x5B57;&#x4E0D;&#x6362;&#x884C;&#x663E;&#x793A;&#xFF0C;&#x8D85;&#x51FA;&#x90E8;&#x5206;&#x4E0D;&#x9690;&#x85CF;</p>
+<pre><code>p {
+    width:100px;
+    word-break:keep-all;
+    white-space:nowrap;     
 }
-module.exports = withRouter(ABC);
-</code></pre><p>&#x7528;&#x8FC7;<code>mixin</code>&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x4F1A;&#x5177;&#x6709;<code>this.router</code>&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x4F7F;&#x7528;<code>this.props.router.push(&apos;/path&apos;)</code>&#x5C31;&#x53EF;&#x4EE5;&#x8DF3;&#x8F6C;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x8DEF;&#x7531;</p>
-<h3 id="react-router-300&#x7248;&#x672C;&#x4EE5;&#x4E0A;">React-Router 3.0.0&#x7248;&#x672C;&#x4EE5;&#x4E0A;</h3>
-<p><code>3.0.0</code>&#x7248;&#x672C;&#x4EE5;&#x540E;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x624B;&#x52A8;<code>mixin</code>&#x76F8;&#x5173;&#x7684;<code>router</code>&#x5C5E;&#x6027;&#xFF0C;&#x5728;&#x4EFB;&#x4F55;&#x9700;&#x8981;&#x8DF3;&#x8F6C;&#x7684;&#x7EC4;&#x4EF6;&#x4E2D;&#x5199;<code>this.props.router.push(&apos;/path&apos;)</code>&#x5C31;&#x53EF;&#x4EE5;&#x8DF3;&#x8F6C;&#x5230;&#x54CD;&#x5E94;&#x7684;&#x8DEF;&#x7531;&#x4E86;&#x3002;</p>
-<h3 id="react-router-40&#x7248;&#x672C;&#x4EE5;&#x4E0A;">React-Router 4.0&#x7248;&#x672C;&#x4EE5;&#x4E0A;</h3>
-<p><code>React-Router 4.0</code>&#x5BF9;&#x8DEF;&#x7531;&#x8FDB;&#x884C;&#x4E86;&#x6539;&#x8FDB;&#xFF0C;<code>router</code>&#x5C5E;&#x6027;&#x6539;&#x4E3A;&#x4E86;<code>history</code>&#x5C5E;&#x6027;&#xFF0C;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x8FD8;&#x662F;&#x548C;<code>3.0</code>&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x4EFB;&#x4F55;&#x9700;&#x8981;&#x8DF3;&#x8F6C;&#x7684;&#x5730;&#x65B9;&#x4F7F;&#x7528;<code>this.props.history.push(&apos;/path&apos;)</code>&#x5C31;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x8DF3;&#x8F6C;&#x4E86;</p>
-<h3 id="&#x53C2;&#x6570;&#x7684;&#x83B7;&#x53D6;">&#x53C2;&#x6570;&#x7684;&#x83B7;&#x53D6;</h3>
-<p>&#x4F7F;&#x7528;<code>this.props.match.params.xxx</code>&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x7684;&#x53C2;&#x6570;</p>
-<h3 id="react&#x5B50;&#x7EC4;&#x4EF6;&#x8C03;&#x7528;-thispropshistorypush&#x53D1;&#x751F;&#x62A5;&#x9519;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;">React&#x5B50;&#x7EC4;&#x4EF6;&#x8C03;&#x7528; this.props.history.push()&#x53D1;&#x751F;&#x62A5;&#x9519;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;</h3>
-<p>&#x7236;&#x7EC4;&#x4EF6;&#x4EE3;&#x7801;</p>
-<pre><code>render() {
-    return (
-    &lt;div className=&quot;homePage&quot;&gt;
-        &lt;ChildComponent  history ={this.props.history}  /&gt;
-    &lt;/div&gt;
-)
-</code></pre><h4 id="thispropshistorypushpath-&#x65E0;&#x54CD;&#x5E94;bug">this.props.history.push(&apos;/path&apos;) &#x65E0;&#x54CD;&#x5E94;bug</h4>
-<p>&#x6B64;&#x95EE;&#x9898;&#x4F7F;&#x7528;&#x4E0E;url&#x5730;&#x5740;&#x4E3A; /xxx/xxx/:id id&#x4E4B;&#x95F4;&#x53D8;&#x5316;&#xFF0C;&#x9875;&#x9762;&#x65E0;&#x54CD;&#x5E94;, &#x6B64;&#x65F6;&#x7EC4;&#x4EF6;&#x8FDB;&#x884C;&#x66F4;&#x65B0; shoudComponent&#x51FD;&#x6570;&#x4F1A;&#x8FDB;&#x884C;props&#x4E0E;nextProps&#x6BD4;&#x8F83;&#xFF0C;&#x5F53;&#x53D1;&#x73B0;props&#x6CA1;&#x6709;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x65E0;&#x54CD;&#x5E94;&#x3002;
-&#x8BF7;&#x770B;react-router-dom &#x91CC;issue&#x91CC;&#x5F00;&#x53D1;&#x8005;&#x89E3;&#x7B54;&#xFF0C;&#x5982;&#x56FE;:</p>
-<p><img src="historyPush.png" alt="history icon"></p>
-<p>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;</p>
-<pre><code>//&#x5728;&#x4E8B;&#x4EF6;&#x51FD;&#x6570;&#x5185;
-this.props.history.push(`/record/hospital/${res.data.admissionId}`);
+</code></pre><p>&#x91CC;&#x9762;&#x7684;&#x6587;&#x5B57;&#x4E0D;&#x6362;&#x884C;&#xFF0C;&#x8D85;&#x51FA;&#x90E8;&#x5206;&#x7528;&#x7701;&#x7565;&#x53F7;&#x4EE3;&#x66FF;</p>
+<pre><code>p {
+    width:100px;
+    word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis; 
+}
 
-//&#x5468;&#x671F;&#x51FD;&#x6570;&#x5185;
-shouldComponentUpdate(nextProps) {
-    let oOpts = JSON.stringify(this.props.match.params);
-    let nOpts = JSON.stringify(nextProps.match.params);
-    if(oOpts != nOpts) {
-        this.goFetch(nextProps.match.params.id); //dispatch&#x8BF7;&#x6C42;, &#x4F1A;&#x66F4;&#x65B0;props
+white-space: normal; //&#x9ED8;&#x8BA4;&#x6362;&#x884C;
+</code></pre><h2 id="echarts-&#x56FE;&#x8868;&#x663E;&#x793A;&#x95EE;&#x9898;">Echarts &#x56FE;&#x8868;&#x663E;&#x793A;&#x95EE;&#x9898;</h2>
+<p>&#x5B9E;&#x73B0;&#x9F20;&#x6807;hover&#x4E0A;&#x53BB;&#x663E;&#x793A;&#x5168;&#x90E8;&#x4FE1;&#x606F;&#xFF0C;&#x9700;&#x914D;&#x7F6E;tootip&#x7684;formatter&#x51FD;&#x6570;</p>
+<pre><code>tooltip: {
+    show: true,
+    trigger: &apos;axis&apos;,
+    //formatter: &apos;{a}({b}): {c}%&apos;
+    formatter: function (params) {
+        var res=&apos;&lt;div&gt;&lt;p&gt;&apos;+params[0].name+&apos;&lt;/p&gt;&lt;/div&gt;&apos;;
+        for(var i = 0; i &lt; params.length; i++) {
+            res += &apos;&lt;p&gt;&apos;+params[i].seriesName+&apos;: &apos;+params[i].data+&apos;%&lt;/p&gt;&apos;;
+        }
+        return res;
     }
-    return true //&#x6B64;&#x5904;&#x4E3A;true, &#x672A;&#x8003;&#x8651;&#x5230;&#x4F18;&#x5316;&#x6027;&#x80FD;,&#x4EC5;&#x89E3;&#x51B3;&#x8DEF;&#x7531;push&#x65E0;&#x54CD;&#x5E94;&#x95EE;&#x9898;
+}
+</code></pre><p><img src="charts_tootip.png" alt="charts-01 icon"></p>
+<p>&#x5B9E;&#x73B0;&#x9F20;&#x6807;hover&#x4E0A;&#x53BB;&#x663E;&#x793A;&#x4FE1;&#x606F;&#x8FC7;&#x957F;&#x65F6;&#x6362;&#x884C;</p>
+<p><img src="charts_tootip2.png" alt="charts-02 icon"></p>
+<p>options&#x914D;&#x7F6E;&#x5982;&#x4E0B;:</p>
+<pre><code>getChartsOptionsForLine = () =&gt; {
+    let {detailData}=this.props;
+    let nameArr=detailData.map(e=&gt;e.name);
+
+    let format=(e)=&gt;{
+        return e.substr(0,4)+&apos;...&apos;
+    }
+    return {
+        xAxis: {
+            axisLabel: {
+                interval: 0,
+                rotate: 40,
+                formatter:format
+            },
+            data: nameArr
+        },
+        yAxis: {
+            axisLine: {
+                show: true
+            },
+            name : &apos;&#x7F3A;&#x9677;&#x6570;&apos;,
+        },
+        tooltip: {
+            show: true,
+            //formatter: &apos;{b}: {c}&apos;,
+            formatter: function (params) {
+                var res=&apos;&lt;div style=&quot;max-width: 280px;white-space: normal&quot;&gt;&apos; + params.name + &apos;: &apos; + params.value + &apos;&lt;/div&gt;&apos;;
+                return res; //&#x6362;&#x884C;&#x663E;&#x793A;
+            }
+        },
+        series: [
+            {
+                type: &apos;bar&apos;,
+                data: detailData,
+                barWidth: 30,
+                itemStyle: {
+                    shadowBlur: 2,
+                    shadowColor: &apos;rgba(0, 0, 0, 0.5)&apos;,
+                    shadowOffsetX: 2,
+                    shadowOffsetY: 2
+                }
+            }
+        ]
+    }
 }
 </code></pre>
                                 
@@ -467,10 +507,14 @@ shouldComponentUpdate(nextProps) {
 
             
                 
-                <a href="crypto.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: crypto使用">
+                <a href="gitPractice.html" class="navigation navigation-prev " aria-label="Previous page: git 实践">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="deepClone.html" class="navigation navigation-next " aria-label="Next page: js对象浅拷贝和深拷贝详解">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -479,7 +523,7 @@ shouldComponentUpdate(nextProps) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"react路由history.push()无效解决办法","level":"1.18","depth":1,"previous":{"title":"crypto使用","level":"1.17","depth":1,"path":"bookStore/crypto.md","ref":"bookStore/crypto.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookStore/history-push.md","mtime":"2018-10-19T06:34:42.295Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-19T07:17:00.312Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"CSS大宝剑","level":"1.3","depth":1,"next":{"title":"js对象浅拷贝和深拷贝详解","level":"1.4","depth":1,"path":"bookStore/deepClone.md","ref":"bookStore/deepClone.md","articles":[]},"previous":{"title":"git 实践","level":"1.2.2","depth":2,"path":"bookStore/gitPractice.md","ref":"bookStore/gitPractice.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookStore/cssWorld.md","mtime":"2018-10-19T07:16:14.197Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-19T07:17:00.312Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
