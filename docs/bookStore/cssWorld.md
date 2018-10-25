@@ -72,7 +72,7 @@ options配置如下:
                 show: true,
                 //formatter: '{b}: {c}',
                 formatter: function (params) {
-                    var res='<div style="max-width: 280px;white-space: normal">' + params.name + ': ' + params.value + '</div>';
+                    var res='<div style=" max-width: 280px;white-space: normal">' + params.name + ': ' + params.value + '</div>';
                     return res; //换行显示
                 }
             },
