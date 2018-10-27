@@ -13,7 +13,7 @@
 
 《JavaScript高级程序设计(第三版)》 ------[美国]Nicholas C.Zakas 2018/6/1————2018/6/25
 
-《学习JavaScript数据结构与算法(第二版)》 ------ [巴西]Loiane Groner  2018/10/08 ———— 
+《学习JavaScript数据结构与算法(第二版)》 ------ [巴西]Loiane Groner  2018/10/08 ————2018/10/26
 
 ### 目录
 
