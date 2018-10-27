@@ -4,7 +4,7 @@
 
 需求如图：
 
-![deep icon](./copyText.png)
+![deep icon](./../images/copyText.png)
 
 代码实现：
 

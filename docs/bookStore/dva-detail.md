@@ -19,7 +19,7 @@ dva = React-Router + Redux + Redux-saga
 
 ## 数据流图
 
- ![dva source](./dva1.png)
+ ![dva source](./../images/dva1.png)
 
  ## 核心概念
 

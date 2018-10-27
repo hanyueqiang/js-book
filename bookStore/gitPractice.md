@@ -40,7 +40,7 @@
 
 ## 版本管理流程模型
 
-![git icon](./git-model.png)
+![git icon](./../images/git-model.png)
 
 ## 应用场景说明
 

@@ -44,7 +44,7 @@
 此问题使用与url地址为 /xxx/xxx/:id id之间变化，页面无响应, 此时组件进行更新 shoudComponent函数会进行props与nextProps比较，当发现props没有更新数据无响应。
 请看react-router-dom 里issue里开发者解答，如图:
 
-![history icon](./historyPush.png)
+![history icon](./../images/historyPush.png)
 
 解决办法：
 

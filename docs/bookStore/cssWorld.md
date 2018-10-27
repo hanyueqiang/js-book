@@ -37,12 +37,12 @@
         }
     }
 
-![charts-01 icon](./charts_tootip.png)
+![charts-01 icon](./../images/charts_tootip.png)
 
 
 实现鼠标hover上去显示信息过长时换行
 
-![charts-02 icon](./charts_tootip2.png)
+![charts-02 icon](./../images/charts_tootip2.png)
 
 options配置如下:
 

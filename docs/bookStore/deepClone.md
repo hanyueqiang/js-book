@@ -11,7 +11,7 @@
 	var num1 = 5;
 	var num2 = num1;
 
-![deep icon](./deepclone2.jpg)
+![deep icon](./../images/deepclone2.jpg)
 
 引用类型数据类型复制，实际上只是指针的操作，指向不变
 
@@ -20,7 +20,7 @@
 	obj2.a = 2;
 	console.log(obj1.a); // 2
 
- ![deep icon](./deepclone1.jpg)
+ ![deep icon](./../images/deepclone1.jpg)
 
 由此可见，基本数据类型的复制非常简单，直接使用赋值运算即可.引用类型的复制则不能直接使用赋值运算，否则操作的仍是同一个对象.
 
