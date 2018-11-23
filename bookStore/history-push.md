@@ -60,3 +60,66 @@
         }
         return true //此处为true, 未考虑到优化性能,仅解决路由push无响应问题
     }
+
+#### `withRouter`高阶组件，提供了`history`让你使用~
+
+    import React from "react";
+    import {withRouter} from "react-router-dom";
+
+    class MyComponent extends React.Component {
+    ...
+    myFunction() {
+        this.props.history.push("/some/Path");
+    }
+    ...
+    }
+    export default withRouter(MyComponent);
+    
+
+这是官方推荐做法哦。但是这种方法用起来有点难受，比如我们想在`redux`里面使用路由的时候，我们只能在组件把`history`传递过去。。
+
+就像问题章节的代码那种场景使用，我们就必须从组件中传一个`history`参数过去。。。
+
+#### 自己创建`history`
+
+我们可以不使用推荐的`BrowserRouter`，依旧使用`Router`组件。我们自己创建`history`，其他地方调用自己创建的`history`。
+
+    // src/history.js
+
+    import createHistory from 'history/createBrowserHistory';
+
+    export default createHistory();
+
+使用Router组件
+
+    // src/index.js
+
+    import { Router, Link, Route } from 'react-router-dom';
+    import history from './history';
+
+    ReactDOM.render(
+    <Provider store={store}>
+        <Router history={history}>
+        ...
+        </Router>
+    </Provider>,
+    document.getElementById('root'),
+    );
+
+其他地方我们就可以这样用了
+
+    import history from './history';
+
+    export function addProduct(props) {
+    return dispatch =>
+        axios.post(`xxx`, props, config)
+        .then(response => {
+            history.push('/cart'); //这里
+        });
+    }
+
+#### 非要用BrowserRouter
+
+`react-router v4`推荐使用`BrowserRouter`组件，而在第三个解决方案中，我们抛弃了这个组件，又回退使用了`Router`组件。
+
+你去看看`BrowserRouter`的源码，我觉得你就豁然开朗了。

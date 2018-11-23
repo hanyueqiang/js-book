@@ -455,7 +455,55 @@ shouldComponentUpdate(nextProps) {
     }
     return true //&#x6B64;&#x5904;&#x4E3A;true, &#x672A;&#x8003;&#x8651;&#x5230;&#x4F18;&#x5316;&#x6027;&#x80FD;,&#x4EC5;&#x89E3;&#x51B3;&#x8DEF;&#x7531;push&#x65E0;&#x54CD;&#x5E94;&#x95EE;&#x9898;
 }
-</code></pre>
+</code></pre><h4 id="withrouter&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;history&#x8BA9;&#x4F60;&#x4F7F;&#x7528;"><code>withRouter</code>&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;<code>history</code>&#x8BA9;&#x4F60;&#x4F7F;&#x7528;~</h4>
+<pre><code>import React from &quot;react&quot;;
+import {withRouter} from &quot;react-router-dom&quot;;
+
+class MyComponent extends React.Component {
+...
+myFunction() {
+    this.props.history.push(&quot;/some/Path&quot;);
+}
+...
+}
+export default withRouter(MyComponent);
+</code></pre><p>&#x8FD9;&#x662F;&#x5B98;&#x65B9;&#x63A8;&#x8350;&#x505A;&#x6CD5;&#x54E6;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x7528;&#x8D77;&#x6765;&#x6709;&#x70B9;&#x96BE;&#x53D7;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x60F3;&#x5728;<code>redux</code>&#x91CC;&#x9762;&#x4F7F;&#x7528;&#x8DEF;&#x7531;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x80FD;&#x5728;&#x7EC4;&#x4EF6;&#x628A;<code>history</code>&#x4F20;&#x9012;&#x8FC7;&#x53BB;&#x3002;&#x3002;</p>
+<p>&#x5C31;&#x50CF;&#x95EE;&#x9898;&#x7AE0;&#x8282;&#x7684;&#x4EE3;&#x7801;&#x90A3;&#x79CD;&#x573A;&#x666F;&#x4F7F;&#x7528;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x5FC5;&#x987B;&#x4ECE;&#x7EC4;&#x4EF6;&#x4E2D;&#x4F20;&#x4E00;&#x4E2A;<code>history</code>&#x53C2;&#x6570;&#x8FC7;&#x53BB;&#x3002;&#x3002;&#x3002;</p>
+<h4 id="&#x81EA;&#x5DF1;&#x521B;&#x5EFA;history">&#x81EA;&#x5DF1;&#x521B;&#x5EFA;<code>history</code></h4>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E0D;&#x4F7F;&#x7528;&#x63A8;&#x8350;&#x7684;<code>BrowserRouter</code>&#xFF0C;&#x4F9D;&#x65E7;&#x4F7F;&#x7528;<code>Router</code>&#x7EC4;&#x4EF6;&#x3002;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;<code>history</code>&#xFF0C;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x7684;<code>history</code>&#x3002;</p>
+<pre><code>// src/history.js
+
+import createHistory from &apos;history/createBrowserHistory&apos;;
+
+export default createHistory();
+</code></pre><p>&#x4F7F;&#x7528;Router&#x7EC4;&#x4EF6;</p>
+<pre><code>// src/index.js
+
+import { Router, Link, Route } from &apos;react-router-dom&apos;;
+import history from &apos;./history&apos;;
+
+ReactDOM.render(
+&lt;Provider store={store}&gt;
+    &lt;Router history={history}&gt;
+    ...
+    &lt;/Router&gt;
+&lt;/Provider&gt;,
+document.getElementById(&apos;root&apos;),
+);
+</code></pre><p>&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7528;&#x4E86;</p>
+<pre><code>import history from &apos;./history&apos;;
+
+export function addProduct(props) {
+return dispatch =&gt;
+    axios.post(`xxx`, props, config)
+    .then(response =&gt; {
+        history.push(&apos;/cart&apos;); //&#x8FD9;&#x91CC;
+    });
+}
+</code></pre><h4 id="&#x975E;&#x8981;&#x7528;browserrouter">&#x975E;&#x8981;&#x7528;BrowserRouter</h4>
+<p><code>react-router v4</code>&#x63A8;&#x8350;&#x4F7F;&#x7528;<code>BrowserRouter</code>&#x7EC4;&#x4EF6;&#xFF0C;&#x800C;&#x5728;&#x7B2C;&#x4E09;&#x4E2A;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x629B;&#x5F03;&#x4E86;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x53C8;&#x56DE;&#x9000;&#x4F7F;&#x7528;&#x4E86;<code>Router</code>&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x4F60;&#x53BB;&#x770B;&#x770B;<code>BrowserRouter</code>&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x6211;&#x89C9;&#x5F97;&#x4F60;&#x5C31;&#x8C41;&#x7136;&#x5F00;&#x6717;&#x4E86;&#x3002;</p>
+
                                 
                                 </section>
                             
@@ -498,7 +546,7 @@ shouldComponentUpdate(nextProps) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"react路由history.push()无效解决办法","level":"1.18","depth":1,"next":{"title":"react注意事项","level":"1.19","depth":1,"path":"bookStore/react-case.md","ref":"bookStore/react-case.md","articles":[]},"previous":{"title":"crypto使用","level":"1.17","depth":1,"path":"bookStore/crypto.md","ref":"bookStore/crypto.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookStore/history-push.md","mtime":"2018-10-29T15:07:09.169Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T15:12:48.041Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"react路由history.push()无效解决办法","level":"1.18","depth":1,"next":{"title":"react注意事项","level":"1.19","depth":1,"path":"bookStore/react-case.md","ref":"bookStore/react-case.md","articles":[]},"previous":{"title":"crypto使用","level":"1.17","depth":1,"path":"bookStore/crypto.md","ref":"bookStore/crypto.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bookStore/history-push.md","mtime":"2018-11-23T02:13:34.451Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-23T02:14:20.512Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
