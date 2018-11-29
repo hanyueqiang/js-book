@@ -101,6 +101,16 @@
 
 	git checkout -b branchName origin/branchName //会在本地新建分支并切换到该分支上。
 
+## `develop`分支强制`push`远程
+
+	git push origin develop:master -f  //把本地的 develop 分支强制(-f)推送到远程 master但是上面操作，本地的 master 分支还是旧的，通常来说应该在本地做好修改再去 push 到远端，所以我推荐如下操作
+
+	git checkout master //切换到master分支
+
+	git reset --hard develop //把master重置成develop分支
+
+	git push origin master --force //再推送到远程分支
+
 ## 删除分支
 	git branch -d <branch-name> //删除本地分支
 
