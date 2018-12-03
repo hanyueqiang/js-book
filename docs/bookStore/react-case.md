@@ -36,3 +36,16 @@
         //阻止冒泡
         e.stopPropagation();
     }
+
+### select下拉框 支持前端进行排序 
+
+    <Select
+        showSearch
+        allowClear
+        placeholder="请选择用户角色"
+        filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0} 
+    >
+        {roleList.map((item, index) => (<Option key={index} value={item.roleId}>{item.roleName}</Option>))}
+    </Select>
+
+
