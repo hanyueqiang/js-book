@@ -48,4 +48,26 @@
         {roleList.map((item, index) => (<Option key={index} value={item.roleId}>{item.roleName}</Option>))}
     </Select>
 
+### antd 表单提交 加正则限制
+    <FormItem
+        {...formItemLayout}
+            label="登录账号">
+        {getFieldDecorator('userName', {
+            rules: [
+                {
+                    required: true, message: '登录账号不能为空',
+                    whitespace: false,
+                },
+                { max: 18, message: '登录账号不能超过18位' },
+                {
+                    //支持数字字母下划线 ^[A-Za-z0-9]+$
+                    pattern: new RegExp('^[0-9a-zA-Z]{1,}$', 'g'), //数字字母组合
+                    message: '登录账号书写格式错误'
+                }
+            ],
+        })(
+            <Input placeholder="请输入用户账号" style={{ width: 180 }} />
+        )}
+    </FormItem>
+
 
