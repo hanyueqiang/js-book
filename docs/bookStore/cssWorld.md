@@ -134,3 +134,22 @@ options配置如下:
                 box-shadow: 10px 10px 5px #888888;
             }
     </style>
+
+## 解决echarts一个页面展示多个图形时无法自适应
+
+通常，当页面只有一个echarts图形时，可以通过以下代码实现自适应：
+
+    myChart.setOption(option);
+    // 设置自适应屏幕大小
+    window.onresize = myChart.resize;
+
+但是，当一个页面有多个图时，上述代码可能只会使一个图形自适应，而其他图形不会自适应，这时，在每个echarts图形的代码中都用下面的代码就可以轻松解决：
+
+    myChart.setOption(option);
+    // 设置自适应屏幕大小
+    //window.onresize = myChart.resize;
+    window.addEventListener("resize",function(){
+        myChart.resize();
+    });
+
+![charts-03 icon](./../images/charts_more.png)
