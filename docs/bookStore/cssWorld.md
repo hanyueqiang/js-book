@@ -153,3 +153,82 @@ options配置如下:
     });
 
 ![charts-03 icon](./../images/charts_more.png)
+
+## echarts x轴文字显示不全(xAxis文字倾斜比较全面的3种做法值得推荐)
+
+### 办法1：xAxis.axisLabel 属性
+
+axisLabel的类型是object ,主要作用是：坐标轴刻度标签的相关设置。（当然yAxis也是一样有这个属性的）
+
+    xAxis : [
+        {
+            type : 'category',
+            data : opt.x,
+            axisTick: {
+                alignWithLabel: true
+            },
+            axisLabel: {
+                interval: 0,
+                rotate: 40   //旋转40度
+            }
+        }
+    ],
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '5%', //底部预留位置
+      containLabel: true
+    },
+
+![charts-04 icon](./../images/charts_rotate.png)
+
+rotate标签倾斜的角度，在类目轴的类目标签显示不全时可以通过旋转防止标签重叠（官方这样说的）旋转的角度是-90到90度
+问题又来了，这个名称x轴的文字如果太长会受到遮挡，还是显示不全，这个时候可以用`grid`属性解决
+
+### 办法2：调用formatter文字竖直显示
+
+办法1在一定程度上还是解决了一些问题。在文字不是非常多的情况下还是可以的，axisLabel中使用formatter回调，formatter有两个参数，使用方法是这样的formatter:function(value,index){} ，value是类目（测试医院A，人民医院）,index 是类目索引。
+
+            axisLabel: {
+                interval: 0,
+                formatter:function(value)
+                    {
+                        return value.split("").join("\n");
+                    }
+            }
+
+
+![charts-05 icon](./../images/charts_shu.png)
+
+### 办法3：调用formatter两个字的竖直显示
+
+文字竖直这个formatter实在有点太简单化了，所以我们来做一个两个字的加\n的换行。formatter如下：
+
+       axisLabel: {
+            interval: 0,
+            formatter:function(value)
+            {
+                debugger
+                var ret = "";//拼接加\n返回的类目项
+                var maxLength = 2;//每项显示文字个数
+                var valLength = value.length;//X轴类目项的文字个数
+                var rowN = Math.ceil(valLength / maxLength); //类目项需要换行的行数
+                if (rowN > 1)//如果类目项的文字大于3,
+                {
+                    for (var i = 0; i < rowN; i++) {
+                        var temp = "";//每次截取的字符串
+                        var start = i * maxLength;//开始截取的位置
+                        var end = start + maxLength;//结束截取的位置
+                        //这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧
+                        temp = value.substring(start, end) + "\n";
+                        ret += temp; //凭借最终的字符串
+                    }
+                    return ret;
+                }
+                else {
+                    return value;
+                }
+            }
+        }
+
+![charts-06 icon](./../images/charts_double.png)
